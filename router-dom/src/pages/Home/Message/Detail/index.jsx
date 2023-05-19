@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import qs from 'qs'
+// import qs from 'qs'
 const detailData = [
     { id: '001', content: 'xxxxxxxxxxxxxxxxxxxxxxxx' },
     { id: '002', content: 'yyyyyyyyyyyyyyyyyyyyyyyy' },
@@ -11,13 +11,13 @@ export default class Detail extends Component {
         // 接收params参数
         // const { id, title } = this.props.match.params
         // 接收search参数
-        const { search } = this.props.location
-        const { id, title } = qs.parse(search.slice(1))
+        // const { search } = this.props.location
+        // const { id, title } = qs.parse(search.slice(1))
         // 接收state参数
-        
+        const { id, title } = this.props.location.state || {}
         const findResult = detailData.find((detailObj) => {
             return detailObj.id === id
-        })
+        }) || {}
         return (
             <ul>
                 <li>id:{id}</li>
