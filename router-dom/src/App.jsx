@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import { Route } from 'react-router-dom'
 import Header from './components/Header'
 import MyNavLink from './components/MyNavLink'
+import { Redirect, Switch } from 'react-router-dom/cjs/react-router-dom.min'
 export default class App extends Component {
   render() {
     return (
@@ -13,14 +14,17 @@ export default class App extends Component {
         </div>
 
         <div>
-          <MyNavLink to="/home/a/b">Home</MyNavLink>
+          <MyNavLink to="/home">Home</MyNavLink>
           <hr />
           <MyNavLink to="/about">About</MyNavLink>
         </div>
         <div>
           {/* 注册路由 */}
-          <Route exact="true" path="/home" component={Home} />
-          <Route exact path="/about" component={About} />
+          <Switch>
+          <Route  path="/home" component={Home} />
+          <Route  path="/about" component={About} />
+          <Redirect to="/About" />
+          </Switch>
         </div>
       </div>
     )
