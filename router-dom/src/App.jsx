@@ -21,9 +21,9 @@ export default class App extends Component {
         <div>
           {/* 注册路由 */}
           <Switch>
-          <Route  path="/home" component={Home} />
-          <Route  path="/about" component={About} />
-          <Redirect to="/About" />
+            <Route path="/home" component={Home} />
+            <Route path="/about" component={About} />
+            <Redirect to="/About" />
           </Switch>
         </div>
       </div>
